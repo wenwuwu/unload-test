@@ -18,10 +18,10 @@ function shouldCompress (req, res) {
 };
 
 function serveIndexPage (res) {
-    res.sendFile(path.resolve(__dirname, '/component', 'index.html'));    // Make sure don't cache it.
+    res.sendFile(path.resolve(__dirname, '/app', 'index.html'));    // Make sure don't cache it.
 };
 
-app.use(express.static(__dirname + '/component'));
+app.use(express.static(__dirname + '/app'));
 
 app.get('/', function (req, res) {
     serveIndexPage(res);
