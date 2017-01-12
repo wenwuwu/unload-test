@@ -34,7 +34,8 @@
 
     <script>
 
-        var msg = "Are you sure to leave before you finish the task ?" ;
+        var msg  = "Are you sure to leave before you finish the task ?" ;
+        var msg2 = 'You are leaving current page with unsaved data!';
 
         window.onbeforeunload = function (e) {
             var e = e || window.event;
@@ -48,9 +49,11 @@
         };
 
         window.onpagehide = function (e) {
-            alert(msg);
-            confirm(msg);
-            return msg;
+            return alert(msg2);
+        };
+
+        window.onunload = function (e) {
+            return alert(msg2);
         };
 
     </script>
