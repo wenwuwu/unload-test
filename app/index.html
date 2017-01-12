@@ -32,11 +32,28 @@
 
   <!--script src='./lib/jquery-3.1.1.min.js'></script-->
 
-  <script>
-      window.onbeforeunload = function () {
-          return "Are you sure to leave before you finish the task ?";
-      };
-  </script>
+    <script>
+
+        var msg = "Are you sure to leave before you finish the task ?" ;
+
+        window.onbeforeunload = function (e) {
+            var e = e || window.event;
+
+            // For IE and Firefox prior to version 4
+            if (e)
+                e.returnValue = msg;
+
+            // For Safari
+            return msg;
+        };
+
+        window.onpagehide = function (e) {
+            alert(msg);
+            confirm(msg);
+            return msg;
+        };
+
+    </script>
 
 </body>
 </html>
